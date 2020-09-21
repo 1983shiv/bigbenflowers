@@ -185,7 +185,7 @@ const ProductPage: React.FC<any> = ({
               </Flex> */}
             </Box>
             <ProductForm product={product} />
-            <Text as="p">{product?.description}</Text>
+            {/* <Text as="p">{product?.description}</Text> */}
             {/* <div
               dangerouslySetInnerHTML={{ __html: product?.description }}
             ></div> */}
