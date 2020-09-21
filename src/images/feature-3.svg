@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.083" y1="0.111" x2="0.894" y2="0.933" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#1c1e2c"/>
+      <stop offset="1" stop-color="#1a1c29"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_3673" data-name="Group 3673" transform="translate(-1030 -2198)">
+    <rect id="Rectangle_844" data-name="Rectangle 844" width="60" height="60" rx="20" transform="translate(1030 2198)" opacity="0.95" fill="url(#linear-gradient)"/>
+    <path id="_001-delivery-truck" data-name="001-delivery-truck" d="M26.768,7.591,22.532,3.265a.782.782,0,0,0-.559-.237H18.527V2.971A2.944,2.944,0,0,0,15.618,0H2.909A2.944,2.944,0,0,0,0,2.971V13.785a2.943,2.943,0,0,0,2.909,2.97h.559a3.953,3.953,0,0,0,7.778,0h4.508a3.953,3.953,0,0,0,7.778,0h2.677A.8.8,0,0,0,27,15.948V8.162a.815.815,0,0,0-.232-.571ZM21.645,4.644,24.3,7.354H18.527V4.644ZM1.582,13.785V2.971A1.343,1.343,0,0,1,2.909,1.616H15.618a1.343,1.343,0,0,1,1.327,1.355V12.98a4.073,4.073,0,0,0-1.191,2.16H11.246a3.953,3.953,0,0,0-7.778,0H2.909a1.343,1.343,0,0,1-1.327-1.355Zm5.775,4.6a2.437,2.437,0,1,1,2.386-2.437A2.415,2.415,0,0,1,7.357,18.385Zm12.285,0a2.437,2.437,0,1,1,2.386-2.437A2.415,2.415,0,0,1,19.642,18.385Zm3.889-3.245A4,4,0,0,0,19.642,11.9a3.875,3.875,0,0,0-1.115.164V8.97h6.891V15.14H23.531Zm0,0" transform="translate(1048.001 2218)" fill="#fff"/>
+  </g>
+</svg>

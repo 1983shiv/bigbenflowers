@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "env": {
+    "GATSBY_SHOP_NAME": "bigbenflowers",
+    "GATSBY_SHOPIFY_ACCESS_TOKEN": "5b7418b1a31861371b2deb1da1d804b6",
+    "GATSBY_PRISMIC_REPOSITORY": "bigbenflwrs"
+  },
+  "build": {
+    "env": {
+      "GATSBY_SHOP_NAME": "bigbenflowers",
+      "GATSBY_SHOPIFY_ACCESS_TOKEN": "5b7418b1a31861371b2deb1da1d804b6",
+      "GATSBY_PRISMIC_REPOSITORY": "bigbenflwrs"
+    }
+  }
+}
