@@ -185,10 +185,10 @@ const ProductPage: React.FC<any> = ({
               </Flex> */}
             </Box>
             <ProductForm product={product} />
-            {/* <Text as="p">{product?.description}</Text> */}
-            <div
+            <Text as="p">{product?.description}</Text>
+            {/* <div
               dangerouslySetInnerHTML={{ __html: product?.description }}
-            ></div>
+            ></div> */}
             {product?.tags && (
               <Box sx={styles.tagArea}>
                 <Text sx={styles.tagTitle}>Tag:</Text>
