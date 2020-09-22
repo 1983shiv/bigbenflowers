@@ -20,6 +20,8 @@ import useOnClickOutside from "../hooks/useOutsideClick";
 import styles from "../components/product-single.style";
 import ProductGrid from "../components/product-grid/product-grid";
 import ProductForm from "./product-form.js";
+import AddGiftstoProductPage from "../components/featured-products/gift-products-productpage";
+import AddVasetoProductPage from "../components/featured-products/vase-products-productpage";
 
 const ProductPage: React.FC<any> = ({
   data: { shopifyProduct, shopifyCollection, prismic },
@@ -88,6 +90,11 @@ const ProductPage: React.FC<any> = ({
     }
   };
 
+  // const handleDeliveryDate = (e: any) => {
+  //   // console.log(e.target.value);
+  //   setdelDate(e.target.value);
+  // };
+
   const handleAddToCart = () => {
     if (!available) {
       return false;
@@ -101,7 +108,9 @@ const ProductPage: React.FC<any> = ({
         price: productVariant.priceV2.amount,
         currency: productVariant.priceV2.currencyCode,
         variantId: productVariant.shopifyId,
+        delDate,
       };
+      console.log("item   ", item);
       add(item);
     }
   };
@@ -113,6 +122,11 @@ const ProductPage: React.FC<any> = ({
   if (!available) {
     addClass.push("disabled");
   }
+
+  const onChangeHandler = (e) => {
+    e.preventDefault();
+    setdelDate({ [e.target.name]: e.target.value });
+  };
 
   const callUsBannerData = prismic?.allHomeminimals?.edges[0]?.node;
   const getPrice = (price: any) =>
@@ -185,6 +199,9 @@ const ProductPage: React.FC<any> = ({
               </Flex> */}
             </Box>
             <ProductForm product={product} />
+            <AddVasetoProductPage />
+            <AddGiftstoProductPage />
+
             {/* <Text as="p">{product?.description}</Text> */}
             {/* <div
               dangerouslySetInnerHTML={{ __html: product?.description }}

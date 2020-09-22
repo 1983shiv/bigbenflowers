@@ -55,6 +55,10 @@ const CartProvider = ({ children }) => {
             lineItemsToUpdate.push({
               variantId: product.variantId,
               quantity: product.quantity,
+              customAttributes: [
+                { key: "deliveryDate", value: product.delDate },
+                { key: "personalNote", value: product.personalNote },
+              ],
             });
           });
           let windowReference = window.open();

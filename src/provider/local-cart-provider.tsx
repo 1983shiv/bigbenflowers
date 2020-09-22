@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useReducer } from 'react';
-import Currency from 'currency.js';
-import { getLocalState, setLocalState } from '../helper/local-storage';
+import React, { useState, useEffect, useReducer } from "react";
+import Currency from "currency.js";
+import { getLocalState, setLocalState } from "../helper/local-storage";
 
-export const CART_PRODUCTS = 'cartProducts';
-export const TOTAL_PRICE = 'totalPrice';
-export const CURRENCY = 'currency';
+export const CART_PRODUCTS = "cartProducts";
+export const TOTAL_PRICE = "totalPrice";
+export const CURRENCY = "currency";
 
 export interface CartProduct {
   title: string;
@@ -13,6 +13,8 @@ export interface CartProduct {
   thumbnail: any;
   variantId: string | number;
   quantity: number;
+  delDate: string;
+  personalNote: string;
 }
 
 interface LocalCartContextProps {
@@ -40,7 +42,7 @@ const getTotalPrice = () => {
 
 const getCurrency = () => {
   const currency = getLocalState(CURRENCY);
-  return currency ? currency : 'USD';
+  return currency ? currency : "USD";
 };
 
 const calculateTotalPrice = (products: CartProduct[]): number => {
@@ -48,7 +50,7 @@ const calculateTotalPrice = (products: CartProduct[]): number => {
   let finalTotal;
   products.forEach((product) => {
     const quantity = product.quantity ? product.quantity : 1;
-    const price = product.price ? product.price : '0.0';
+    const price = product.price ? product.price : "0.0";
     const itemPrice = Currency(quantity).multiply(price);
     total = Currency(total).add(itemPrice);
   });
@@ -59,7 +61,7 @@ const calculateTotalPrice = (products: CartProduct[]): number => {
 const LocalCartProvider = ({ children }: any) => {
   const [products, setProducts] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [currency, setCurrency] = useState('USD');
+  const [currency, setCurrency] = useState("USD");
   React.useEffect(() => {
     setProducts(getCartProducts());
     setTotalPrice(getTotalPrice());

@@ -2,13 +2,12 @@ import React, { useState, useContext, useEffect, useCallback } from "react";
 import find from "lodash/find";
 import isEqual from "lodash/isEqual";
 import PropTypes from "prop-types";
-import { Flex, Box, Text, Button } from "theme-ui";
+import { Flex, Box, Text, Button, Textarea } from "theme-ui";
 import { CartContext } from "../provider/cart-provider";
 import { LocalCartContext } from "../provider/local-cart-provider";
 import styles from "../components/product-single.style";
 
 const ProductForm = ({ product }) => {
-  console.log("product", product);
   const {
     options,
     variants,
@@ -17,6 +16,9 @@ const ProductForm = ({ product }) => {
   } = product;
   const [variant, setVariant] = useState({ ...initialVariant });
   const [quantity, setQuantity] = useState(1);
+  const [delDate, setdelDate] = useState("");
+  const [personalNote, setpersonalNote] = useState("");
+
   const {
     store: { client, adding },
   } = useContext(CartContext);
@@ -66,7 +68,17 @@ const ProductForm = ({ product }) => {
     setVariant({ ...selectedVariant });
   };
 
-  // const handleAddToCart = () => {
+  const handleDeliveryDate = (e) => {
+    // console.log(e.target.value);
+    setdelDate(e.target.value);
+  };
+
+  const handlePersonalNote = (e) => {
+    // console.log(e.target.value);
+    setpersonalNote(e.target.value);
+  };
+
+  // const handleAddToCart = () => { setpersonalNote
   //   addVariantToCart(productVariant.shopifyId, quantity);
   // };
 
@@ -75,13 +87,16 @@ const ProductForm = ({ product }) => {
       return false;
     }
 
+    // price: productVariant.priceV2.amount,
     const item = {
       title: product.title,
       thumbnail: product?.images[0]?.localFile?.childImageSharp?.fluid,
       quantity: 1,
-      price: productVariant.priceV2.amount,
+      price: parseInt(4),
       currency: productVariant.priceV2.currencyCode,
       variantId: productVariant.shopifyId,
+      delDate,
+      personalNote,
     };
     add(item);
   };
@@ -153,6 +168,33 @@ const ProductForm = ({ product }) => {
           onChange={handleQuantityChange}
           value={quantity}
         />
+      </Box>
+      {/* handlePersonalNote */}
+      <Box>
+        <Text as="p" className="line-item-property__field">
+          <label htmlFor="delivery-date">Delivery Date</label>
+          <input
+            required
+            className="required"
+            id="delivery-date"
+            type="text"
+            name="properties[Delivery Date]"
+            onChange={(e) => handleDeliveryDate(e)}
+          />
+        </Text>
+      </Box>
+      <Box>
+        <Text as="p" className="line-item-property__field">
+          <label htmlFor="delivery-date">Personal Message</label>
+          <input
+            required
+            className="required"
+            id="personalnote"
+            type="text"
+            name="properties[personalnote]"
+            onChange={(e) => handlePersonalNote(e)}
+          />
+        </Text>
       </Box>
       <button
         type="submit"
