@@ -1,6 +1,6 @@
-## Installation
+## Custom Development of Ecommerce website
 
-N.B. Checkout our docs for more details.
+Which includes custom checkout with delivery date and custom message for product receiver and upsell features on product page.
 
 This section assume that you already **downloaded the picksy file from Themeforest** and open it in your favorite editor.
 
