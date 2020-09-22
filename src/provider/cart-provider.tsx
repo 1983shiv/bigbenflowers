@@ -56,8 +56,8 @@ const CartProvider = ({ children }) => {
               variantId: product.variantId,
               quantity: product.quantity,
               customAttributes: [
-                { key: "deliveryDate", value: product.delDate },
-                { key: "personalNote", value: product.personalNote },
+                { key: "deliveryDate", value: product.delDate || "" },
+                { key: "personalNote", value: product.personalNote || "" },
               ],
             });
           });

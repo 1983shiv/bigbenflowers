@@ -47,7 +47,6 @@ const AddVasetoProductPage: React.FC<{ withLink?: boolean }> = ({
     query={`${giftStaticQuery}`}
     render={({ allShopifyProduct }) => {
       const products = allShopifyProduct?.edges;
-      console.log("products---------", products);
       return (
         <ProductGrid
           id="feature"

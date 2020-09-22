@@ -1,8 +1,14 @@
-import React, { useState, useContext, useEffect, useCallback } from "react";
+import React, {
+  useState,
+  useContext,
+  useEffect,
+  useCallback,
+  useRef,
+} from "react";
 import find from "lodash/find";
 import isEqual from "lodash/isEqual";
 import PropTypes from "prop-types";
-import { Flex, Box, Text, Button, Textarea } from "theme-ui";
+import { Box, Text } from "theme-ui";
 import { CartContext } from "../provider/cart-provider";
 import { LocalCartContext } from "../provider/local-cart-provider";
 import styles from "../components/product-single.style";
@@ -69,12 +75,10 @@ const ProductForm = ({ product }) => {
   };
 
   const handleDeliveryDate = (e) => {
-    // console.log(e.target.value);
     setdelDate(e.target.value);
   };
 
   const handlePersonalNote = (e) => {
-    // console.log(e.target.value);
     setpersonalNote(e.target.value);
   };
 
@@ -92,7 +96,7 @@ const ProductForm = ({ product }) => {
       title: product.title,
       thumbnail: product?.images[0]?.localFile?.childImageSharp?.fluid,
       quantity: 1,
-      price: parseInt(4),
+      price: productVariant.priceV2.amount,
       currency: productVariant.priceV2.currencyCode,
       variantId: productVariant.shopifyId,
       delDate,
@@ -183,6 +187,31 @@ const ProductForm = ({ product }) => {
           />
         </Text>
       </Box>
+      {/* <Box>
+        <Datepicker
+          ref={delDateRef}
+          required
+          selected={delDate}
+          onSelect={() => setdelDate(new Date(delDate))}
+          onChange={() => {}}
+          dateFormat="Pp"
+          className="Datepicker pa2"
+          minDate={new Date()}
+          placeholderText="Select a date"
+          calendarClassName="rasta-stripes"
+          popperModifiers={{
+            offset: {
+              enabled: true,
+              offset: "0px, 0px",
+            },
+            preventOverflow: {
+              enabled: true,
+              escapeWithReference: false,
+              boundariesElement: "scrollParent",
+            },
+          }}
+        />
+      </Box> */}
       <Box>
         <Text as="p" className="line-item-property__field">
           <label htmlFor="delivery-date">Personal Message</label>

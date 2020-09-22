@@ -123,10 +123,10 @@ const ProductPage: React.FC<any> = ({
     addClass.push("disabled");
   }
 
-  const onChangeHandler = (e) => {
-    e.preventDefault();
-    setdelDate({ [e.target.name]: e.target.value });
-  };
+  // const onChangeHandler = (e) => {
+  //   e.preventDefault();
+  //   setdelDate({ [e.target.name]: e.target.value });
+  // };
 
   const callUsBannerData = prismic?.allHomeminimals?.edges[0]?.node;
   const getPrice = (price: any) =>

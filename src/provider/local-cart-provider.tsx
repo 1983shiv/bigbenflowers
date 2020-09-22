@@ -13,8 +13,8 @@ export interface CartProduct {
   thumbnail: any;
   variantId: string | number;
   quantity: number;
-  delDate: string;
-  personalNote: string;
+  delDate?: string;
+  personalNote?: string;
 }
 
 interface LocalCartContextProps {
