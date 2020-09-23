@@ -143,9 +143,11 @@ const ProductPage: React.FC<any> = ({
       let thumbnailArr = item.localFile.childImageSharp.fluid.srcSetWebp.split(
         ","
       );
+      let t3 = thumbnailArr[3] ? thumbnailArr[3].split(" ")[0] : "";
+      let t0 = thumbnailArr[0] ? thumbnailArr[0].split(" ")[0] : "";
       photoArr.push({
-        original: thumbnailArr[3].split(" ")[0],
-        thumbnail: thumbnailArr[0].split(" ")[0],
+        original: t3,
+        thumbnail: t0,
       });
     });
   };
