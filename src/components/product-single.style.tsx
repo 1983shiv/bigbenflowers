@@ -71,8 +71,8 @@ const styles = {
   },
   header: {
     borderBottom: `1px solid #EBEBEB`,
-    paddingBottom: ["25px", "30px"],
-    marginBottom: ["25px", "30px"],
+    // paddingBottom: ["25px", "30px"],
+    // marginBottom: ["25px", "30px"],
   },
   price: {
     color: "primary",

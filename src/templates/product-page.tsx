@@ -6,7 +6,7 @@ import React, {
   useContext,
   useCallback,
 } from "react";
-import { Flex, Box, Heading, Text, jsx, Button } from "theme-ui";
+import { Flex, Box, Heading, Text, jsx } from "theme-ui";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
@@ -199,8 +199,12 @@ const ProductPage: React.FC<any> = ({
               </Flex> */}
             </Box>
             <ProductForm product={product} />
-            <AddVasetoProductPage />
-            <AddGiftstoProductPage />
+            <Box sx={{ backgroundColor: "#f4f4f4", padding: "10px" }}>
+              <AddVasetoProductPage />
+            </Box>
+            <Box sx={{ backgroundColor: "#f4f4f4", padding: "10px" }}>
+              <AddGiftstoProductPage />
+            </Box>
 
             {/* <Text as="p">{product?.description}</Text> */}
             {/* <div

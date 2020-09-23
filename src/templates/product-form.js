@@ -1,17 +1,23 @@
-import React, {
-  useState,
-  useContext,
-  useEffect,
-  useCallback,
-  useRef,
-} from "react";
+/** @jsx jsx */
+
+import React, { useState, useContext, useEffect, useCallback } from "react";
+import { jsx } from "theme-ui";
 import find from "lodash/find";
 import isEqual from "lodash/isEqual";
 import PropTypes from "prop-types";
-import { Box, Text } from "theme-ui";
+import { Box, Text, Textarea } from "theme-ui";
 import { CartContext } from "../provider/cart-provider";
 import { LocalCartContext } from "../provider/local-cart-provider";
 import styles from "../components/product-single.style";
+// import "date-fns";
+// import Grid from "@material-ui/core/Grid";
+// // import { withStyles } from "@material-ui/core/styles";
+// import MomentUtils from "@date-io/moment";
+// import {
+//   MuiPickersUtilsProvider,
+//   DatePicker,
+//   KeyboardDatePicker,
+// } from "material-ui-pickers";
 
 const ProductForm = ({ product }) => {
   const {
@@ -22,8 +28,13 @@ const ProductForm = ({ product }) => {
   } = product;
   const [variant, setVariant] = useState({ ...initialVariant });
   const [quantity, setQuantity] = useState(1);
-  const [delDate, setdelDate] = useState("");
+  // const [delDate, setdelDate] = useState("");
   const [personalNote, setpersonalNote] = useState("");
+  const [delDate, setdelDate] = React.useState();
+
+  const handleDateChange = (date) => {
+    setdelDate(date);
+  };
 
   const {
     store: { client, adding },
@@ -91,7 +102,6 @@ const ProductForm = ({ product }) => {
       return false;
     }
 
-    // price: productVariant.priceV2.amount,
     const item = {
       title: product.title,
       thumbnail: product?.images[0]?.localFile?.childImageSharp?.fluid,
@@ -135,18 +145,63 @@ const ProductForm = ({ product }) => {
   }).format(variant.price);
 
   return (
-    <>
-      <Box>
+    <Box sx={{ padding: "12px" }}>
+      <Box sx={{ marginTop: "5px", marginBottom: "5px" }}>
         <Text sx={styles.price}>{price}</Text>
       </Box>
-      {options.map(({ id, name, values }, index) => (
-        <React.Fragment key={id}>
-          <Box>
+      <Box sx={{ marginTop: "15px", marginBottom: "15px", display: "block" }}>
+        {/* <Text as="p" className="line-item-property__field"> */}
+        <label htmlFor="delivery-date">Delivery Date</label>
+        <input
+          placeholder="Delivery Date"
+          required
+          className="required"
+          id="delivery-date"
+          type="text"
+          name="properties[Delivery Date]"
+          onChange={(e) => handleDeliveryDate(e)}
+          sx={{ marginLeft: "94px", padding: "5px", width: "50%" }}
+        />
+        {/* </Text> */}
+      </Box>
+      {/* <Box sx={{ marginTop: "15px", marginBottom: "15px" }}>
+        <MuiPickersUtilsProvider utils={MomentUtils}>
+          <Grid container>
+            <DatePicker
+              label="Delivery Date"
+              keyboard
+              placeholder="MM/DD/YYYY"
+              format={"MM/DD/YYYY"}
+              // handle clearing outside => pass plain array if you are not controlling value outside
+              mask={(value) =>
+                value
+                  ? [/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]
+                  : []
+              }
+              value={delDate}
+              onChange={(e) => {
+                handleDateChange(e, delDate);
+              }}
+              disableOpenOnEnter
+              animateYearScrolling={false}
+              autoOk={true}
+              clearable
+              onInputChange={(e) => {
+                handleDateChange(e.target.value);
+              }}
+            />
+          </Grid>
+        </MuiPickersUtilsProvider>
+      </Box> */}
+      <Box sx={{ marginTop: "15px", marginBottom: "15px", display: "block" }}>
+        {options.map(({ id, name, values }, index) => (
+          <React.Fragment key={id}>
             <label htmlFor={name}>{name} </label>
             <select
               name={name}
               key={id}
               onChange={(event) => handleOptionChange(index, event)}
+              sx={{ marginLeft: "150px", padding: "5px", width: "50%" }}
             >
               {values.map((value) => (
                 <option
@@ -158,12 +213,13 @@ const ProductForm = ({ product }) => {
                 </option>
               ))}
             </select>
-          </Box>
-        </React.Fragment>
-      ))}
-      <Box>
+          </React.Fragment>
+        ))}
+      </Box>
+      <Box sx={{ marginTop: "15px", marginBottom: "15px" }}>
         <label htmlFor="quantity">Quantity </label>
         <input
+          placeholder="Qty"
           type="number"
           id="quantity"
           name="quantity"
@@ -171,69 +227,34 @@ const ProductForm = ({ product }) => {
           step="1"
           onChange={handleQuantityChange}
           value={quantity}
+          sx={{ marginLeft: "123px", padding: "5px", width: "50%" }}
         />
       </Box>
       {/* handlePersonalNote */}
-      <Box>
-        <Text as="p" className="line-item-property__field">
-          <label htmlFor="delivery-date">Delivery Date</label>
-          <input
-            required
-            className="required"
-            id="delivery-date"
-            type="text"
-            name="properties[Delivery Date]"
-            onChange={(e) => handleDeliveryDate(e)}
-          />
-        </Text>
-      </Box>
-      {/* <Box>
-        <Datepicker
-          ref={delDateRef}
-          required
-          selected={delDate}
-          onSelect={() => setdelDate(new Date(delDate))}
-          onChange={() => {}}
-          dateFormat="Pp"
-          className="Datepicker pa2"
-          minDate={new Date()}
-          placeholderText="Select a date"
-          calendarClassName="rasta-stripes"
-          popperModifiers={{
-            offset: {
-              enabled: true,
-              offset: "0px, 0px",
-            },
-            preventOverflow: {
-              enabled: true,
-              escapeWithReference: false,
-              boundariesElement: "scrollParent",
-            },
-          }}
-        />
-      </Box> */}
-      <Box>
-        <Text as="p" className="line-item-property__field">
+      <Box sx={{ marginTop: "15px", marginBottom: "15px" }}>
+        <Box as="p" className="line-item-property__field">
           <label htmlFor="delivery-date">Personal Message</label>
-          <input
+          <Textarea
             required
+            placeholder="Type your personal message if any"
             className="required"
             id="personalnote"
             type="text"
             name="properties[personalnote]"
             onChange={(e) => handlePersonalNote(e)}
           />
-        </Text>
+        </Box>
       </Box>
       <button
         type="submit"
         disabled={!available || adding}
         onClick={handleAddToCart}
+        sx={{ backgroundColor: "#fff", width: "100%", padding: "10px" }}
       >
         Add to Cart
       </button>
       {!available && <p>This Product is out of Stock!</p>}
-    </>
+    </Box>
   );
 };
 
