@@ -22,6 +22,11 @@ import ProductGrid from "../components/product-grid/product-grid";
 import ProductForm from "./product-form.js";
 import AddGiftstoProductPage from "../components/featured-products/gift-products-productpage";
 import AddVasetoProductPage from "../components/featured-products/vase-products-productpage";
+// import ReactBnbGallery from "react-bnb-gallery";
+// import ImageGallery from "@types/react-image-gallery@1.0.0";
+import ImageGallery from "react-image-gallery";
+// import "~react-image-gallery/styles/css/image-gallery.css";
+import "../../node_modules/react-image-gallery/styles/css/image-gallery.css";
 
 const ProductPage: React.FC<any> = ({
   data: { shopifyProduct, shopifyCollection, prismic },
@@ -90,11 +95,6 @@ const ProductPage: React.FC<any> = ({
     }
   };
 
-  // const handleDeliveryDate = (e: any) => {
-  //   // console.log(e.target.value);
-  //   setdelDate(e.target.value);
-  // };
-
   const handleAddToCart = () => {
     if (!available) {
       return false;
@@ -136,6 +136,36 @@ const ProductPage: React.FC<any> = ({
       style: "currency",
     }).format(parseFloat(price && price.amount ? price.amount : 0));
 
+  // const photos = () => {
+  //   let photosArr = [];
+  //   product?.images.map((item: any) => {
+  //     let thumbnailArr = item.localFile.childImageSharp.fluid.srcSetWebp.split(
+  //       ","
+  //     );
+  //     photosArr.push({
+  //       photo: thumbnailArr[3],
+  //       caption: "",
+  //       subcaption: "",
+  //       thumbnail: thumbnailArr[0],
+  //     });
+  //   });
+  // };
+
+  let photoArr: Array<object> = [];
+
+  const setPhotoArr = () => {
+    product?.images.map((item: any) => {
+      let thumbnailArr = item.localFile.childImageSharp.fluid.srcSetWebp.split(
+        ","
+      );
+      photoArr.push({
+        original: thumbnailArr[3].split(" ")[0],
+        thumbnail: thumbnailArr[0].split(" ")[0],
+      });
+    });
+  };
+
+  setPhotoArr();
   return (
     <PrimaryLayout
       bgColor="#ffffff"
@@ -151,13 +181,16 @@ const ProductPage: React.FC<any> = ({
             className={product?.images.length > 1 ? "has-items" : ""}
             sx={styles.image}
           >
-            {product?.images.map((item: any) => (
+            <ImageGallery items={photoArr} />
+            {/* {console.log(photosArr)} */}
+            {/* <ReactBnbGallery show="false" photos={photoArr} /> */}
+            {/* {product?.images.map((item: any) => (
               <Img
                 key={item?.id}
                 fluid={item?.localFile?.childImageSharp?.fluid}
                 alt={product?.title}
               />
-            ))}
+            ))} */}
           </Box>
           <Box sx={styles.content}>
             <Box sx={styles.header}>
