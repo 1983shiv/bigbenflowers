@@ -136,21 +136,6 @@ const ProductPage: React.FC<any> = ({
       style: "currency",
     }).format(parseFloat(price && price.amount ? price.amount : 0));
 
-  // const photos = () => {
-  //   let photosArr = [];
-  //   product?.images.map((item: any) => {
-  //     let thumbnailArr = item.localFile.childImageSharp.fluid.srcSetWebp.split(
-  //       ","
-  //     );
-  //     photosArr.push({
-  //       photo: thumbnailArr[3],
-  //       caption: "",
-  //       subcaption: "",
-  //       thumbnail: thumbnailArr[0],
-  //     });
-  //   });
-  // };
-
   let photoArr: Array<object> = [];
 
   const setPhotoArr = () => {
