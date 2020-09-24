@@ -201,7 +201,7 @@ const styles = {
     backgroundColor: "primary",
     position: "absolute",
     top: "9px",
-    right: "80px",
+    right: "60px",
     paddingLeft: "2px",
     paddingRight: "2px",
   },

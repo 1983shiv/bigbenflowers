@@ -8,11 +8,11 @@ import React, {
 } from "react";
 import { Flex, Box, Heading, Text, jsx } from "theme-ui";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
-import { IoIosAdd, IoIosRemove } from "react-icons/io";
+// import Img from "gatsby-image";
+// import { IoIosAdd, IoIosRemove } from "react-icons/io";
 import SEO from "../components/seo";
 import PrimaryLayout from "../components/layout/primary/primary";
-import SocialShare from "../components/social-share/social-share";
+// import SocialShare from "../components/social-share/social-share";
 // import CallusBanner from "../components/call-us-banner/call-us-banner";
 import { CartContext } from "../provider/cart-provider";
 import { LocalCartContext } from "../provider/local-cart-provider";
@@ -28,6 +28,7 @@ import ImageGallery from "react-image-gallery";
 // import "~react-image-gallery/styles/css/image-gallery.css";
 import "../../node_modules/react-image-gallery/styles/css/image-gallery.css";
 import "./custom.css";
+import Accordion from "../components/accordion/Accordion";
 
 const ProductPage: React.FC<any> = ({
   data: { shopifyProduct, shopifyCollection, prismic },
@@ -153,6 +154,24 @@ const ProductPage: React.FC<any> = ({
     });
   };
 
+  const descontent = [
+    {
+      title: "Product Description",
+      content: product?.descriptionHtml,
+    },
+  ];
+  const retpolicy = [
+    {
+      title: "Return Policy",
+      content: "",
+    },
+  ];
+  const shippingdetail = [
+    {
+      title: "Shipping Details",
+      content: "",
+    },
+  ];
   setPhotoArr();
   return (
     <PrimaryLayout
@@ -220,6 +239,9 @@ const ProductPage: React.FC<any> = ({
               </Flex> */}
             </Box>
             <ProductForm product={product} />
+            <Accordion data={descontent} />
+            <Accordion data={retpolicy} />
+            <Accordion data={shippingdetail} />
             <Box sx={styles.addxtratoProduct}>
               <AddVasetoProductPage />
             </Box>
@@ -228,10 +250,7 @@ const ProductPage: React.FC<any> = ({
             </Box>
 
             {/* <Text as="p">{product?.description}</Text> */}
-            {/* <div
-              dangerouslySetInnerHTML={{ __html: product?.description }}
-            ></div> */}
-            {product?.tags && (
+            {/* {product?.tags && (
               <Box sx={styles.tagArea}>
                 <Text sx={styles.tagTitle}>Tag:</Text>
                 <Box>
@@ -242,7 +261,7 @@ const ProductPage: React.FC<any> = ({
                   ))}
                 </Box>
               </Box>
-            )}
+            )} */}
             {/* <SocialShare title={product?.title} url={href} /> */}
           </Box>
         </Flex>

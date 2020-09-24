@@ -27,7 +27,7 @@ const ProductForm = ({ product }) => {
     priceRange: { minVariantPrice },
   } = product;
   const [variant, setVariant] = useState({ ...initialVariant });
-  const [quantity, setQuantity] = useState(1);
+  const [qtty, setqtty] = useState(1);
   // const [delDate, setdelDate] = useState("");
   const [personalNote, setpersonalNote] = useState("");
   const [delDate, setdelDate] = React.useState();
@@ -66,7 +66,7 @@ const ProductForm = ({ product }) => {
   }, [productVariant, checkAvailability, product.shopifyId]);
 
   const handleQuantityChange = ({ target }) => {
-    setQuantity(target.value);
+    setqtty(target.value);
   };
 
   const handleOptionChange = (optionIndex, { target }) => {
@@ -216,7 +216,7 @@ const ProductForm = ({ product }) => {
           </React.Fragment>
         ))}
       </Box>
-      <Box sx={{ marginTop: "15px", marginBottom: "15px" }}>
+      {/* <Box sx={{ marginTop: "15px", marginBottom: "15px" }}>
         <label htmlFor="quantity">Quantity </label>
         <input
           placeholder="Qty"
@@ -225,11 +225,11 @@ const ProductForm = ({ product }) => {
           name="quantity"
           min="1"
           step="1"
-          onChange={handleQuantityChange}
-          value={quantity}
+          onChange={(e) => handleQuantityChange(e)}
+          value={qtty}
           sx={{ marginLeft: "123px", padding: "5px", width: "50%" }}
         />
-      </Box>
+      </Box> */}
       {/* handlePersonalNote */}
       <Box sx={{ marginTop: "15px", marginBottom: "15px" }}>
         <Box as="p" className="line-item-property__field">
