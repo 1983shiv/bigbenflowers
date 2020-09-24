@@ -28,7 +28,7 @@ const congratslatestStaticQuery = graphql`
             originalSrc
             localFile {
               childImageSharp {
-                fluid {
+                fluid(maxWidth: 400, maxHeight: 400, quality: 100) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
