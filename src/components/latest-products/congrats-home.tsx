@@ -47,7 +47,6 @@ const CongratsHome: React.FC<{ withLink?: boolean }> = ({
     query={`${congratslatestStaticQuery}`}
     render={({ allShopifyProduct }) => {
       const products = allShopifyProduct?.edges;
-      console.log(products);
       return (
         <ProductGridCarousel
           id="latestProducts"
