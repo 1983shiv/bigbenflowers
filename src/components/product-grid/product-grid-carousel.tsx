@@ -30,7 +30,7 @@ const ProductGridCarousel: React.FC<PropsType> = ({
       minimumFractionDigits: 2,
       style: "currency",
     }).format(parseFloat(price && price.amount ? price.amount : 0));
-  // const handleOnDragStart = (e) => e.preventDefault();
+  const handleOnDragStart = (e) => e.preventDefault();
   return (
     <Box id={id} sx={styles.wrapper}>
       <Flex sx={styles.header}>
@@ -44,9 +44,9 @@ const ProductGridCarousel: React.FC<PropsType> = ({
       {products ? (
         <Grid sx={styles.productGrid}>
           <AliceCarousel
-            mouseTrackingEnabled
             autoPlay={true}
             autoPlayInterval={2000}
+            onDragStart={handleOnDragStart}
           >
             {products.map((product: any) => {
               const {
