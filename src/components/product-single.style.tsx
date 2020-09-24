@@ -43,9 +43,10 @@ const styles = {
     },
   },
   content: {
-    width: "40%",
+    width: "50%",
     paddingTop: "10px",
     paddingLeft: "30px",
+    overflow: "hidden",
     "@media only screen and (max-width: 1280px)": {
       width: "50%",
     },
@@ -141,6 +142,17 @@ const styles = {
     fontSize: ["14px", "15px"],
     marginRight: "12px",
     marginTop: "5px",
+  },
+  addxtratoProduct: {
+    padding: "10px",
+    span: {
+      fontSize: "11px !important",
+    },
+    h4: {
+      fontSize: "11px !important",
+      textAlign: "center",
+      height: "50px",
+    },
   },
 };
 

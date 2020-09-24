@@ -13,7 +13,7 @@ import { IoIosAdd, IoIosRemove } from "react-icons/io";
 import SEO from "../components/seo";
 import PrimaryLayout from "../components/layout/primary/primary";
 import SocialShare from "../components/social-share/social-share";
-import CallusBanner from "../components/call-us-banner/call-us-banner";
+// import CallusBanner from "../components/call-us-banner/call-us-banner";
 import { CartContext } from "../provider/cart-provider";
 import { LocalCartContext } from "../provider/local-cart-provider";
 import useOnClickOutside from "../hooks/useOutsideClick";
@@ -27,6 +27,7 @@ import AddVasetoProductPage from "../components/featured-products/vase-products-
 import ImageGallery from "react-image-gallery";
 // import "~react-image-gallery/styles/css/image-gallery.css";
 import "../../node_modules/react-image-gallery/styles/css/image-gallery.css";
+import "./custom.css";
 
 const ProductPage: React.FC<any> = ({
   data: { shopifyProduct, shopifyCollection, prismic },
@@ -219,10 +220,10 @@ const ProductPage: React.FC<any> = ({
               </Flex> */}
             </Box>
             <ProductForm product={product} />
-            <Box sx={{ backgroundColor: "#f4f4f4", padding: "10px" }}>
+            <Box sx={styles.addxtratoProduct}>
               <AddVasetoProductPage />
             </Box>
-            <Box sx={{ backgroundColor: "#f4f4f4", padding: "10px" }}>
+            <Box sx={styles.addxtratoProduct}>
               <AddGiftstoProductPage />
             </Box>
 
@@ -230,7 +231,7 @@ const ProductPage: React.FC<any> = ({
             {/* <div
               dangerouslySetInnerHTML={{ __html: product?.description }}
             ></div> */}
-            {product?.tags && (
+            {/* {product?.tags && (
               <Box sx={styles.tagArea}>
                 <Text sx={styles.tagTitle}>Tag:</Text>
                 <Box>
@@ -241,8 +242,8 @@ const ProductPage: React.FC<any> = ({
                   ))}
                 </Box>
               </Box>
-            )}
-            <SocialShare title={product?.title} url={href} />
+            )} */}
+            {/* <SocialShare title={product?.title} url={href} /> */}
           </Box>
         </Flex>
         <ProductGrid

@@ -1,6 +1,6 @@
 const styles = {
   wrapper: {
-    padding: 30,
+    padding: 10,
     marginBottom: 30,
     borderRadius: 6,
     backgroundColor: "white",
@@ -23,7 +23,7 @@ const styles = {
     },
   },
   productGrid: {
-    gridGap: 30,
+    gridGap: 0,
     gridTemplateColumns: ["1fr 1fr", "1fr 1fr 1fr"],
     marginBottom: [-15, -30],
     ".productCard": {

@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import ProductGrid from "../product-grid/product-grid";
+// import ProductGrid from "../product-grid/product-grid";
+import ProductGridCarousel from "../product-grid/product-grid-carousel";
 
 const giftStaticQuery = graphql`
   query {
@@ -48,10 +49,10 @@ const AddVasetoProductPage: React.FC<{ withLink?: boolean }> = ({
     render={({ allShopifyProduct }) => {
       const products = allShopifyProduct?.edges;
       return (
-        <ProductGrid
+        <ProductGridCarousel
           id="feature"
           withLink={withLink}
-          gridTitle="Add Vase"
+          gridTitle="Add Vase to Your Cart..."
           products={products}
         />
       );

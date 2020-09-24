@@ -2117,6 +2117,13 @@
     "@types/history" "*"
     "@types/react" "*"
 
+"@types/react-alice-carousel@^1.15.3":
+  version "1.15.3"
+  resolved "https://registry.yarnpkg.com/@types/react-alice-carousel/-/react-alice-carousel-1.15.3.tgz#e581096b3867c025bbe842e4f2af5b239dc6df62"
+  integrity sha512-3tv5HALFTjS7ixUbBzkvEn7aDqPMxoYZkcISbkV58utCUNwJDznhKC/b+qqZv4SXMdRHGT1uU0U476OduKXwwg==
+  dependencies:
+    react-alice-carousel "*"
+
 "@types/react-custom-scrollbars@^4.0.6":
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/@types/react-custom-scrollbars/-/react-custom-scrollbars-4.0.6.tgz#d84831ac287d8fefdf2a7dcbc12a505bcecc8092"
@@ -12505,6 +12512,14 @@ rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-alice-carousel@*, react-alice-carousel@^1.19.3:
+  version "1.19.3"
+  resolved "https://registry.yarnpkg.com/react-alice-carousel/-/react-alice-carousel-1.19.3.tgz#dc33b431aca727d999407f1e529f522b15dc3bc2"
+  integrity sha512-FaOQ/f7C/4cBuXr2tA4YgVyVrvWI7VbccGxJpu+rCsnnUlcN0YLz+20iJ2TFCXJp9M+/FjBratUNC7vQBrMQPw==
+  dependencies:
+    prop-types "^15.5.10"
+    vanilla-swipe "1.2.0"
+
 react-anchor-link-smooth-scroll@^1.0.12:
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/react-anchor-link-smooth-scroll/-/react-anchor-link-smooth-scroll-1.0.12.tgz#5cd49c73e74be6d20b4c05a5e5c72d07ebbedac7"
@@ -15403,6 +15418,11 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+vanilla-swipe@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/vanilla-swipe/-/vanilla-swipe-1.2.0.tgz#dd36671ed8e388c6ce73e3d75dcee596f001f7a0"
+  integrity sha512-1yNnsfHcl67Y24HGJc/zrC9omRBzzxqvC6D5apOXMqGukuz0Zha1ydKJM7AUL/dB2w7Bd7UsI2Uw7+AE4soDaA==
 
 vary@^1, vary@~1.1.2:
   version "1.1.2"
