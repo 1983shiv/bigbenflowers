@@ -29,7 +29,7 @@ const giftStaticQuery = graphql`
             originalSrc
             localFile {
               childImageSharp {
-                fluid(maxWidth: 150, maxHeight: 150, quality: 100) {
+                fluid(maxWidth: 150, quality: 100) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
