@@ -1,13 +1,13 @@
-require('ts-node').register({ files: true });
-require('dotenv').config({
+require("ts-node").register({ files: true });
+require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
 module.exports = {
   siteMetadata: {
-    title: `PICKSY.`,
-    description: `Kick off your next jamstack ecommerce web app with this PICKSY.`,
-    author: `@redq`,
+    title: `Bigben Flowers.`,
+    description: `Wide Range of Flowers and Gifts to Choose From. Fast Delivery within UK. Save upto 50%.`,
+    author: `@Shiv Srivastava`,
   },
   plugins: [
     `gatsby-plugin-typescript`,
@@ -34,14 +34,14 @@ module.exports = {
         accessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN, // Load from env
         verbose: true,
         paginationSize: 100,
-        includeCollections: ['shop'],
+        includeCollections: ["shop"],
       },
     },
     {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
         repositoryName: process.env.GATSBY_PRISMIC_REPOSITORY, // Load from env
-        path: '/preview',
+        path: "/preview",
         previews: true,
         sharpKeys: [
           /image|photo|picture/, // (default)
@@ -52,13 +52,13 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`Open Sans\:400,600,700`, `Poppins\:400,600,700`],
-        display: 'swap',
+        display: "swap",
       },
     },
     {
-      resolve: 'gatsby-plugin-nprogress',
+      resolve: "gatsby-plugin-nprogress",
       options: {
-        color: '#333',
+        color: "#333",
         showSpinner: false,
       },
     },
@@ -68,7 +68,7 @@ module.exports = {
       options: {
         useMozJpeg: false,
         stripMetadata: true,
-        defaultQuality: '95',
+        defaultQuality: "95",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

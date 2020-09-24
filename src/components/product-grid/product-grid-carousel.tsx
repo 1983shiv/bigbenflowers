@@ -45,7 +45,7 @@ const ProductGridCarousel: React.FC<PropsType> = ({
         <Grid sx={styles.productGrid}>
           <AliceCarousel
             mouseTrackingEnabled
-            autoPlay={false}
+            autoPlay={true}
             autoPlayInterval={2000}
           >
             {products.map((product: any) => {

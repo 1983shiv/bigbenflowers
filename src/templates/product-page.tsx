@@ -231,7 +231,7 @@ const ProductPage: React.FC<any> = ({
             {/* <div
               dangerouslySetInnerHTML={{ __html: product?.description }}
             ></div> */}
-            {/* {product?.tags && (
+            {product?.tags && (
               <Box sx={styles.tagArea}>
                 <Text sx={styles.tagTitle}>Tag:</Text>
                 <Box>
@@ -242,7 +242,7 @@ const ProductPage: React.FC<any> = ({
                   ))}
                 </Box>
               </Box>
-            )} */}
+            )}
             {/* <SocialShare title={product?.title} url={href} /> */}
           </Box>
         </Flex>

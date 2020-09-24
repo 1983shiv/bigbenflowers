@@ -5,11 +5,16 @@ import SEO from "../components/seo";
 import PrimaryLayout from "../components/layout/primary/primary";
 import HomeBanner from "../components/home-banner/home-banner";
 import CategoryBlocks from "../components/category-blocks/primary/primary";
-import LatestProducts from "../components/latest-products/latest-products-home";
+// import LatestProducts from "../components/latest-products/latest-products-home";
+import BirthdayHome from "../components/latest-products/birthday-home";
+import LoveRomanceHome from "../components/latest-products/romanance-home";
+import OccassionsHome from "../components/latest-products/occassions-home";
+import CongratsHome from "../components/latest-products/congrats-home";
 import HowItWorks from "../components/how-it-works/primary/primary";
 // import FeaturedProducts from "../components/featured-products/featured-products-home";
 // import TrendingProducts from "../components/trending-products/trending-products-home";
 import CallusBanner from "../components/call-us-banner/call-us-banner";
+import { Box } from "theme-ui";
 
 const indexPageStaticQuery = graphql`
   query {
@@ -80,7 +85,14 @@ const IndexPage: React.FC<{}> = () => (
             bannerButtonText={bannerButtonText}
           />
           <CategoryBlocks categoryBlock={categoryBlock} />
-          <LatestProducts />
+          {/* <LatestProducts />
+           */}
+          <Box sx={{ overflow: "hidden" }}>
+            <LoveRomanceHome />
+            <BirthdayHome />
+            <CongratsHome />
+            <OccassionsHome />
+          </Box>
           <CallusBanner
             callUsBanner={callUsBanner}
             callUsTitle={callUsTitle}
