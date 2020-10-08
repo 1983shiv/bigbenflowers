@@ -9,6 +9,7 @@ import { Box, Text, Textarea } from "theme-ui";
 import { CartContext } from "../provider/cart-provider";
 import { LocalCartContext } from "../provider/local-cart-provider";
 import styles from "../components/product-single.style";
+import DatePicker from "react-date-picker";
 // import "date-fns";
 // import Grid from "@material-ui/core/Grid";
 // // import { withStyles } from "@material-ui/core/styles";
@@ -27,11 +28,12 @@ const ProductForm = ({ product }) => {
     priceRange: { minVariantPrice },
   } = product;
 
+  // const [newDate, setnewDate] = useState(new Date());
   const [variant, setVariant] = useState({ ...initialVariant });
   const [qtty, setqtty] = useState(1);
   // const [delDate, setdelDate] = useState("");
   const [personalNote, setpersonalNote] = useState("");
-  const [delDate, setdelDate] = React.useState();
+  const [delDate, setdelDate] = React.useState(new Date());
 
   const handleDateChange = (date) => {
     setdelDate(date);
@@ -87,7 +89,8 @@ const ProductForm = ({ product }) => {
   };
 
   const handleDeliveryDate = (e) => {
-    setdelDate(e.target.value);
+    setdelDate();
+    console.log(e.taget);
   };
 
   const handlePersonalNote = (e) => {
@@ -109,7 +112,7 @@ const ProductForm = ({ product }) => {
       price: productVariant.priceV2.amount,
       currency: productVariant.priceV2.currencyCode,
       variantId: productVariant.shopifyId,
-      delDate,
+      delDate: JSON.stringify(delDate),
       personalNote,
     };
     add(item);
@@ -152,7 +155,14 @@ const ProductForm = ({ product }) => {
       <Box sx={{ marginTop: "15px", marginBottom: "15px", display: "block" }}>
         {/* <Text as="p" className="line-item-property__field"> */}
         <label htmlFor="delivery-date">Delivery Date</label>
-        <input
+        <DatePicker
+          onChange={setdelDate}
+          value={delDate}
+          sx={{ marginLeft: "90px", padding: "5px", width: "50%" }}
+          name="properties[Delivery Date]"
+          format="y-MM-dd"
+        />
+        {/* <input
           placeholder="dd/mm/yyyy"
           required
           className="required"
@@ -161,7 +171,7 @@ const ProductForm = ({ product }) => {
           name="properties[Delivery Date]"
           onChange={(e) => handleDeliveryDate(e)}
           sx={{ marginLeft: "94px", padding: "5px", width: "50%" }}
-        />
+        /> */}
         {/* </Text> */}
       </Box>
       {/* <Box sx={{ marginTop: "15px", marginBottom: "15px" }}>
