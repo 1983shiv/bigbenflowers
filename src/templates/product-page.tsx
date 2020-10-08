@@ -97,6 +97,12 @@ const ProductPage: React.FC<any> = ({
     }
   };
 
+  // const [showAddtoVase, setshowAddtoVase] = useState(false);
+
+  // const addToVase = () => {
+  //   setshowAddtoVase(true);
+  // };
+
   const handleAddToCart = () => {
     if (!available) {
       return false;
@@ -239,15 +245,17 @@ const ProductPage: React.FC<any> = ({
               </Flex> */}
             </Box>
             <ProductForm product={product} />
+
             <Accordion data={descontent} />
             <Accordion data={retpolicy} />
             <Accordion data={shippingdetail} />
+            {/* 
             <Box sx={styles.addxtratoProduct}>
               <AddVasetoProductPage />
             </Box>
             <Box sx={styles.addxtratoProduct}>
               <AddGiftstoProductPage />
-            </Box>
+            </Box> */}
 
             {/* <Text as="p">{product?.description}</Text> */}
             {/* {product?.tags && (

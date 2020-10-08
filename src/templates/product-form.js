@@ -26,6 +26,7 @@ const ProductForm = ({ product }) => {
     variants: [initialVariant],
     priceRange: { minVariantPrice },
   } = product;
+
   const [variant, setVariant] = useState({ ...initialVariant });
   const [qtty, setqtty] = useState(1);
   // const [delDate, setdelDate] = useState("");
@@ -40,7 +41,7 @@ const ProductForm = ({ product }) => {
     store: { client, adding },
   } = useContext(CartContext);
 
-  const { products, add, update } = useContext(LocalCartContext);
+  const { add } = useContext(LocalCartContext);
 
   const productVariant =
     client.product.helpers.variantForOptions(product, variant) || variant;
@@ -101,7 +102,6 @@ const ProductForm = ({ product }) => {
     if (!available) {
       return false;
     }
-
     const item = {
       title: product.title,
       thumbnail: product?.images[0]?.localFile?.childImageSharp?.fluid,
@@ -153,7 +153,7 @@ const ProductForm = ({ product }) => {
         {/* <Text as="p" className="line-item-property__field"> */}
         <label htmlFor="delivery-date">Delivery Date</label>
         <input
-          placeholder="Delivery Date"
+          placeholder="dd/mm/yyyy"
           required
           className="required"
           id="delivery-date"
